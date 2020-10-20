@@ -39,6 +39,7 @@ target "Potatso" do
     pod 'ObjectMapper', '~> 3.4'
     pod 'CocoaLumberjack/Swift'
     pod 'PSOperations'
+    pod 'ChameleonFramework', '~> 2.1.0'
     tunnel
     library
     socket

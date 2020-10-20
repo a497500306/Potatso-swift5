@@ -16,6 +16,10 @@
 		1EEBB8781FFFD52700EB33C3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEBB8761FFFD4B500EB33C3 /* NetworkExtension.framework */; };
 		1EEBB8791FFFD8A700EB33C3 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EEBB8761FFFD4B500EB33C3 /* NetworkExtension.framework */; };
 		1EF602951F113A660005E0C7 /* GeoLite2-Country.mmdb in Resources */ = {isa = PBXBuildFile; fileRef = 1EF602941F113A660005E0C7 /* GeoLite2-Country.mmdb */; };
+		31956752253EBCA700CA4CFB /* MGWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3195674F253EBCA700CA4CFB /* MGWindow.swift */; };
+		31956753253EBCA700CA4CFB /* MGNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31956750253EBCA700CA4CFB /* MGNavigationController.swift */; };
+		31956754253EBCA700CA4CFB /* MGVPNViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31956751253EBCA700CA4CFB /* MGVPNViewController.swift */; };
+		31956799253EC54500CA4CFB /* MGConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31956798253EC54500CA4CFB /* MGConst.swift */; };
 		49AFCAB8A7A7C95E61767328 /* Pods_PacketProcessor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 075A0EDC2AD266124CA24078 /* Pods_PacketProcessor.framework */; };
 		73AC1EAA0D7C41952F34CF14 /* Pods_PotatsoLibraryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A646ACF237B032E4A2016FC /* Pods_PotatsoLibraryTests.framework */; };
 		82F0934D24F9F56921AF0EE0 /* Pods_PotatsoModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD33A4FF6B8E224B4FF4A210 /* Pods_PotatsoModel.framework */; };
@@ -344,6 +348,10 @@
 		1EE85E0B2000639700C5DB6C /* InfoInternal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoInternal.swift; sourceTree = "<group>"; };
 		1EEBB8761FFFD4B500EB33C3 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 		1EF602941F113A660005E0C7 /* GeoLite2-Country.mmdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GeoLite2-Country.mmdb"; sourceTree = "<group>"; };
+		3195674F253EBCA700CA4CFB /* MGWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGWindow.swift; sourceTree = "<group>"; };
+		31956750253EBCA700CA4CFB /* MGNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGNavigationController.swift; sourceTree = "<group>"; };
+		31956751253EBCA700CA4CFB /* MGVPNViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MGVPNViewController.swift; sourceTree = "<group>"; };
+		31956798253EC54500CA4CFB /* MGConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MGConst.swift; sourceTree = "<group>"; };
 		3C9A6823014EF76FB5F7725A /* Pods-PotatsoLibrary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PotatsoLibrary.debug.xcconfig"; path = "Target Support Files/Pods-PotatsoLibrary/Pods-PotatsoLibrary.debug.xcconfig"; sourceTree = "<group>"; };
 		4A646ACF237B032E4A2016FC /* Pods_PotatsoLibraryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PotatsoLibraryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD84123306F4F6D572556EB /* Pods-PacketTunnel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PacketTunnel.release.xcconfig"; path = "Target Support Files/Pods-PacketTunnel/Pods-PacketTunnel.release.xcconfig"; sourceTree = "<group>"; };
@@ -1027,6 +1035,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3195674E253EBCA700CA4CFB /* MYKEY */ = {
+			isa = PBXGroup;
+			children = (
+				3195674F253EBCA700CA4CFB /* MGWindow.swift */,
+				31956750253EBCA700CA4CFB /* MGNavigationController.swift */,
+				31956751253EBCA700CA4CFB /* MGVPNViewController.swift */,
+				31956798253EC54500CA4CFB /* MGConst.swift */,
+			);
+			path = MYKEY;
+			sourceTree = "<group>";
+		};
 		9B07D6B11CB7A6A900182C1B /* PotatsoLibraryTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1073,6 +1092,7 @@
 		9B0CFA0D1C1C0B1B007BD7C6 /* Potatso */ = {
 			isa = PBXGroup;
 			children = (
+				3195674E253EBCA700CA4CFB /* MYKEY */,
 				1EF602941F113A660005E0C7 /* GeoLite2-Country.mmdb */,
 				1ECA215E1E05E8C700B32187 /* Potatso.entitlements */,
 				9BC8589F1C33B00200992032 /* Potatso-Bridge-Header.h */,
@@ -2580,6 +2600,7 @@
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/CallbackURLKit/CallbackURLKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Cartography/Cartography.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
@@ -2607,6 +2628,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CallbackURLKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cartography.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
@@ -2884,6 +2906,7 @@
 				B821B0F31D5334D50061E7B9 /* ActionRow.swift in Sources */,
 				B8D8CC111D50D5CD00CE6C0D /* SyncManager.swift in Sources */,
 				B83AA5701D38E6F7007905B4 /* RequestDetailVC.swift in Sources */,
+				31956752253EBCA700CA4CFB /* MGWindow.swift in Sources */,
 				B8C0FE151D5E0A9400737454 /* PushLocalChangesOperation.swift in Sources */,
 				B83D3E7D1D2BA8C8007655CE /* Receipt.swift in Sources */,
 				B8CCC6DD1CFD5D5D000E7E2E /* CollectionViewController.swift in Sources */,
@@ -2921,11 +2944,13 @@
 				B84551401CF83D07005779CD /* HomeVC.swift in Sources */,
 				B8D8CC131D50D5DB00CE6C0D /* ICloudSyncService.swift in Sources */,
 				B8CCC6E71CFDD99E000E7E2E /* ProxyListViewController.swift in Sources */,
+				31956754253EBCA700CA4CFB /* MGVPNViewController.swift in Sources */,
 				9B76EEB91C911CBF002BF5D1 /* ProxySelectionViewController.swift in Sources */,
 				B8C0FE0F1D5DF96500737454 /* PushLocalModifiedChangesOperation.swift in Sources */,
 				9BF303461CC8A1F60096588E /* LogDetailViewController.swift in Sources */,
 				9B1D9B7B1CA4C45F0078D814 /* HUDUtils.swift in Sources */,
 				B8C0FE131D5DFDB500737454 /* PushLocalDeletedChangesOperation.swift in Sources */,
+				31956753253EBCA700CA4CFB /* MGNavigationController.swift in Sources */,
 				B8822CCD1D2AA70A00AD252C /* Receipt.m in Sources */,
 				B8CCC6E11CFDCADC000E7E2E /* RuleSetListViewController.swift in Sources */,
 				B821B0F01D51DD8F0061E7B9 /* KeychainUtils.swift in Sources */,
@@ -2948,6 +2973,7 @@
 				B8A09D7C1D51B9A900A9A989 /* FetchCloudChangesOperation.swift in Sources */,
 				B896A8401D548AAC009E4BF5 /* ICloudSetupOperation.swift in Sources */,
 				B8A09D691D51B42B00A9A989 /* CloudKitRecord.swift in Sources */,
+				31956799253EC54500CA4CFB /* MGConst.swift in Sources */,
 				9BB3F7441CC60B6F00C2DD05 /* Error.swift in Sources */,
 				9B76EEAD1C9005D2002BF5D1 /* RuleConfigurationViewController.swift in Sources */,
 			);

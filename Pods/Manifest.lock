@@ -7,6 +7,9 @@ PODS:
     - CallbackURLKit/Core (= 1.0.0)
   - CallbackURLKit/Core (1.0.0)
   - Cartography (4.0.0)
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
   - CocoaAsyncSocket (7.6.4)
   - CocoaLumberjack/Core (3.7.0)
   - CocoaLumberjack/Swift (3.7.0):
@@ -63,6 +66,7 @@ DEPENDENCIES:
   - AsyncSwift
   - CallbackURLKit (from `./Library/CallbackURLKit`)
   - Cartography
+  - ChameleonFramework (~> 2.1.0)
   - CocoaAsyncSocket
   - CocoaLumberjack/Swift
   - Eureka
@@ -87,6 +91,7 @@ SPEC REPOS:
     - Appirater
     - AsyncSwift
     - Cartography
+    - ChameleonFramework
     - CocoaAsyncSocket
     - CocoaLumberjack
     - Eureka
@@ -122,6 +127,7 @@ SPEC CHECKSUMS:
   AsyncSwift: 65775a7b32e740609b24969ece3de58723b9dc3e
   CallbackURLKit: 1a56181ef8d6a1491865041b2192dd8c9a364669
   Cartography: c5626d29056b20f1e95c017326ee4df57cc39ad8
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLumberjack: e8955b9d337ac307103b0a34fd141c32f27e53c5
   Eureka: 859877ab1e85661b6b7e810015d430e937d9cc7d
@@ -142,6 +148,6 @@ SPEC CHECKSUMS:
   SwiftColor: 2b0fd15257981f23265f9939f311098159fe6d1c
   YAML-Framework: 4143807db7155936f3b00facd6e5c22bd338cd50
 
-PODFILE CHECKSUM: 1254b15cd46f6cb56eff3f207594ce8b21cf0de3
+PODFILE CHECKSUM: 52cd39e95cdbfaf415a323e9c28de2997f7fc517
 
 COCOAPODS: 1.9.1

@@ -20,11 +20,11 @@ public enum ManagerError: Error {
     case vpnStartFail
 }
 
-public enum VPNStatus {
-    case off
-    case connecting
-    case on
-    case disconnecting
+public enum VPNStatus: Int {
+    case off = 0
+    case connecting = 1
+    case on = 2
+    case disconnecting = 3
 }
 
 

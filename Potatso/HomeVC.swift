@@ -45,6 +45,30 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
         super.viewDidLoad()
         // Fix a UI stuck bug
         navigationController?.delegate = self
+        
+        // 注册通知
+        NotificationCenter.default.addObserver(self, selector: #selector(self.mg_handleConnectButtonPressed(_:)), name: Notification.Name.MG.MG_HandleConnectButtonPressed, object: nil)
+        
+        // 选择全局/自动
+        NotificationCenter.default.addObserver(self, selector: #selector(self.mg_selectDefaultToProxy(_:)), name: NSNotification.Name.MG.MG_SelectDefaultToProxy, object: nil)
+
+    }
+    
+    //MARK: 点击连接通知
+    @objc private func mg_handleConnectButtonPressed(_ notification: Notification?) {
+        self.handleConnectButtonPressed()
+    }
+    
+    //MARK: 选择全局/自动
+    @objc private func mg_selectDefaultToProxy(_ notification: Notification?) {
+        if let value = notification?.object as? Bool {
+            self.switchRowOnChange(value: value)
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.MG.MG_HandleConnectButtonPressed, object: nil)
+        NotificationCenter.default.removeObserver(self, name: Notification.Name.MG.MG_SelectDefaultToProxy, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +108,9 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
     }
 
     func updateConnectButton() {
+        // 更新按钮状态通知
+        NotificationCenter.default.post(name: Notification.Name.MG.MG_UpdateConnectButton, object: self.status.rawValue, userInfo: nil)
+        
         connectButton.isEnabled = [VPNStatus.on, VPNStatus.off].contains(status)
         connectButton.setTitleColor(UIColor.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: UIControlState())
         switch status {
@@ -124,19 +151,16 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
         }
 
         proxySection <<< SwitchRow(kFormDefaultToProxy) {
+            // 发送更新配置(true:全局/false:自动)状态通知
+            NotificationCenter.default.post(name: Notification.Name.MG.MG_DefaultToProxy, object: presenter.group.defaultToProxy, userInfo: nil)
+            
             $0.title = "Default To Proxy".localized()
             $0.value = presenter.group.defaultToProxy
             $0.hidden = Condition.function([kFormProxies]) { [unowned self] form in
                 return self.presenter.proxy == nil
             }
         }.onChange({ [unowned self] (row) in
-            do {
-                try defaultRealm.write {
-                    self.presenter.group.defaultToProxy = row.value ?? true
-                }
-            }catch {
-                self.showTextHUD("\("Fail to modify default to proxy".localized()): \((error as NSError).localizedDescription)", dismissAfterDelay: 1.5)
-            }
+            self.switchRowOnChange(value: row.value ?? true)
         })
         <<< TextRow(kFormDNS) {
             $0.title = "DNS".localized()
@@ -147,6 +171,17 @@ class HomeVC: FormViewController, UINavigationControllerDelegate, HomePresenterP
             cell.textField.autocapitalizationType = .none
         }
         return proxySection
+    }
+    
+    func switchRowOnChange(value: Bool) {
+        do {
+            try defaultRealm.write {
+                self.presenter.group.defaultToProxy = value
+                NotificationCenter.default.post(name: Notification.Name.MG.MG_DefaultToProxy, object: presenter.group.defaultToProxy, userInfo: nil)
+            }
+        }catch {
+            self.showTextHUD("\("Fail to modify default to proxy".localized()): \((error as NSError).localizedDescription)", dismissAfterDelay: 1.5)
+        }
     }
 
     func generateRuleSetSection() -> Section {

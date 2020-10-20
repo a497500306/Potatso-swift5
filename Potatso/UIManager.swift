@@ -33,6 +33,10 @@ class UIManager: NSObject, AppLifeCycleProtocol {
         keyWindow?.rootViewController = makeRootViewController()
 
         Receipt.shared.validate()
+        
+//        let vpnVC = MGVPNViewController()
+//        vpnVC.show()
+        
         return true
     }
     
