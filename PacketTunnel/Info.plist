@@ -32,9 +32,5 @@
 		<key>NSExtensionPrincipalClass</key>
 		<string>PacketTunnelProvider</string>
 	</dict>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>gamekit</string>
-	</array>
 </dict>
 </plist>
